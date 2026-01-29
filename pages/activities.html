@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Miranda | Actvities</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-dark text-white">
+
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4 fixed-top bg-dark py-1" id="navbar-placeholder"></nav>
+
+    <section class="activities-section py-5" id="activities">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-5 fw-bold mb-1">My <span class="text-blue">Activities</span></h2>
+                    <p class="text-secondary">Laboratory Activities on 7ANALYTICS</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="activity-card">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-md-4">
+                                <div class="activity-img-wrapper">
+                                    <img src="images/activity1.jpg" alt="CCNA Study" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4 position-relative" style="min-height: 200px;">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h4 class="fw-bold mb-0">Physical Fitness Test PWA Project</h4>
+                                        <span class="badge bg-primary-soft text-blue">Jan 2026</span>
+                                    </div>
+                                    <p class="text-secondary">
+                                        Developed a Progressive Web Application featuring an AI Chatbot and administrative panel for student exercise visualization and tracking.
+                                    </p>
+                                    <div class="activity-tags mb-5">
+                                        <span class="badge border border-primary text-blue">Web Dev</span>
+                                        <span class="badge border border-primary text-blue">AI Chatbot</span>
+                                    </div>
+
+                                    <div class="position-absolute bottom-0 end-0 p-4">
+                                        <a href="files/activity2.pdf" download class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                            <i class="bi bi-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="activity-card">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-md-4">
+                                <div class="activity-img-wrapper">
+                                    <img src="images/activity2.jpg" alt="PWA Development" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4 position-relative" style="min-height: 200px;">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h4 class="fw-bold mb-0">CCNA OSPFv2 Concept Training</h4>
+                                        <span class="badge bg-primary-soft text-blue">Dec 2025</span>
+                                    </div>
+                                    <p class="text-secondary">
+                                        Discussed Module 1 of single-area OSPFv2 concepts as part of the Enterprise Networking, Security, and Automation course. Focused on link-state routing protocols and configuration.
+                                    </p>
+                                    <div class="activity-tags mb-5"> <span class="badge border border-primary text-blue">Networking</span>
+                                        <span class="badge border border-primary text-blue">Cisco</span>
+                                    </div>
+
+                                    <div class="position-absolute bottom-0 end-0 p-4">
+                                        <a href="files/activity1.pdf" download class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                            <i class="bi bi-download me-1"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-simple py-4" id="footer-placeholder"></footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+
+                    if (id === 'navbar-placeholder') {
+                        var navBarElement = document.getElementById('navbarNav');
+                        if (navBarElement && typeof bootstrap !== 'undefined') {
+                            new bootstrap.Collapse(navBarElement, { toggle: false });
+                        }
+
+                        const currentPath = window.location.pathname.split("/").pop() || 'index.html';
+                        const navLinks = document.querySelectorAll('.nav-link');
+
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            
+                            const linkPath = link.getAttribute('href').split('#')[0];
+
+                            if (linkPath === currentPath) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+        }
+
+        loadComponent('navbar-placeholder', 'navbar.html');
+        loadComponent('footer-placeholder', 'footer.html');
+    </script>
+
+</body>
+
+</html>
