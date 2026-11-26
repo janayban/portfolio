@@ -46,6 +46,13 @@ export default function Hero() {
             <div className="pt-1 flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                  if (window.location.hash) {
+                    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                  }
+                }}
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-lg bg-cyan-cyber hover:bg-cyan-400 text-obsidian font-semibold text-xs sm:text-sm transition-all shadow-md shadow-cyan-cyber/10"
               >
                 <span>Explore Projects</span>
@@ -54,6 +61,13 @@ export default function Hero() {
 
               <a
                 href="#skills"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
+                  if (window.location.hash) {
+                    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                  }
+                }}
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-lg border border-slate-800 bg-obsidian-surface hover:bg-obsidian-hover hover:border-slate-700 text-slate-100 font-medium text-xs sm:text-sm transition-all"
               >
                 <span>Skills & Certs</span>
@@ -62,7 +76,9 @@ export default function Hero() {
 
               <a
                 href={PERSONAL_INFO.resumeUrl}
-                download
+                download="MIRANDA-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg border border-slate-800 hover:border-slate-700 bg-obsidian text-slate-300 hover:text-cyan-cyber text-xs sm:text-sm font-mono transition-all"
                 title="Download CV"
               >

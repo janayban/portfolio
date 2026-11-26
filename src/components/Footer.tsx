@@ -50,7 +50,9 @@ export default function Footer() {
             </a>
             <a
               href={PERSONAL_INFO.resumeUrl}
-              download
+              download="MIRANDA-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-2.5 py-1 rounded border border-slate-800 bg-obsidian-surface hover:text-cyan-cyber hover:border-cyan-cyber/40 transition-colors text-[11px]"
             >
               CV

@@ -8,6 +8,16 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
+    // If user lands with a '#' in the URL (e.g. /#home), scroll to section and clear hash
+    if (window.location.hash) {
+      const targetId = window.location.hash.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
@@ -31,6 +41,19 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (id: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Remove hash from the browser URL address bar
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  };
+
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
@@ -53,6 +76,7 @@ export default function Navbar() {
           {/* Brand/Handle in Monospace */}
           <a
             href="#home"
+            onClick={(e) => handleNavClick('home', e)}
             className="flex items-center gap-2.5 group"
             aria-label="Ivan Miranda Security Portfolio"
           >
@@ -78,6 +102,7 @@ export default function Navbar() {
                   <a
                     key={link.id}
                     href={link.href}
+                    onClick={(e) => handleNavClick(link.id, e)}
                     className={`font-mono text-xs px-3 py-1 rounded transition-all duration-150 ${
                       isActive
                         ? 'text-cyan-cyber bg-cyan-muted font-medium border border-cyan-cyber/30'
@@ -102,7 +127,9 @@ export default function Navbar() {
             {/* Resume / CV button */}
             <a
               href={PERSONAL_INFO.resumeUrl}
-              download
+              download="MIRANDA-CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-2 inline-flex items-center gap-1 font-mono text-xs text-slate-200 hover:text-cyan-cyber px-3 py-1 rounded border border-slate-800 hover:border-cyan-cyber/50 bg-obsidian-surface transition-all"
             >
               <span>CV</span>
@@ -136,7 +163,7 @@ export default function Navbar() {
                 <a
                   key={link.id}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(link.id, e)}
                   className="font-mono text-xs px-3 py-2 rounded text-slate-300 hover:text-cyan-cyber hover:bg-slate-800/60"
                 >
                   &gt; {link.name}
@@ -148,7 +175,9 @@ export default function Navbar() {
                 </span>
                 <a
                   href={PERSONAL_INFO.resumeUrl}
-                  download
+                  download="MIRANDA-CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-mono text-xs text-cyan-cyber border border-cyan-cyber/30 px-2 py-0.5 rounded bg-cyan-muted"
                 >
                   CV
