@@ -80,7 +80,7 @@ export default function Hero() {
             <div className="p-3.5 sm:p-4 rounded-xl border border-slate-800 bg-obsidian-surface shadow-xl flex flex-col sm:flex-row items-center gap-4">
               <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-lg overflow-hidden border border-slate-700 bg-slate-900 shrink-0 shadow-lg">
                 <img
-                  src="/images/profile-formal.jpg"
+                  src={PERSONAL_INFO.image}
                   alt="John Ivan Miranda - Formal Portrait"
                   className="w-full h-full object-cover object-top"
                   loading="eager"

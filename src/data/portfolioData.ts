@@ -42,6 +42,8 @@ export interface LabActivity {
   viewUrl: string;
 }
 
+const base = import.meta.env.BASE_URL;
+
 export const PERSONAL_INFO = {
   name: "John Ivan Miranda",
   handle: "miranda.sec",
@@ -54,9 +56,9 @@ export const PERSONAL_INFO = {
   email: "johnivanmiranda1020@gmail.com",
   github: "https://github.com/janayban",
   linkedin: "https://www.linkedin.com/in/john-ivan-miranda-8082733a4/",
-  resumeUrl: "/docs/MIRANDA-CV.pdf",
-  securityTxtUrl: "/.well-known/security.txt",
-  image: "/images/profile-formal.jpg",
+  resumeUrl: `${base}docs/MIRANDA-CV.pdf`,
+  securityTxtUrl: `${base}.well-known/security.txt`,
+  image: `${base}images/profile-formal.jpg`,
 };
 
 export const PROJECTS: Project[] = [
@@ -68,7 +70,7 @@ export const PROJECTS: Project[] = [
     tags: ["Android", "Java", "Air-Gap Protocol", "Local SQLite", "Input Sanitization"],
     category: "Web & Systems",
     githubUrl: "https://github.com/janayban",
-    image: "/images/notecode.jpg",
+    image: `${base}images/notecode.jpg`,
     featured: true,
     securityControls: [
       "Zero network permissions required in AndroidManifest",
@@ -84,7 +86,7 @@ export const PROJECTS: Project[] = [
     tags: ["Python 3", "Socket API", "Network Recon", "CVE Mapping", "Threading"],
     category: "Security",
     githubUrl: "https://github.com/janayban",
-    image: "/images/cisco1.png",
+    image: `${base}images/cisco1.png`,
     featured: true,
     securityControls: [
       "Configurable timeout & rate-limiting to prevent network disruption",
@@ -100,7 +102,7 @@ export const PROJECTS: Project[] = [
     tags: ["PHP", "MySQL", "JavaScript", "RBAC", "OWASP Defenses", "Bootstrap"],
     category: "Web & Systems",
     githubUrl: "https://github.com/janayban",
-    image: "/images/trimclick.jpg",
+    image: `${base}images/trimclick.jpg`,
     featured: true,
     securityControls: [
       "Prepared statements preventing SQL Injection (OWASP CWE-89)",
@@ -116,7 +118,7 @@ export const PROJECTS: Project[] = [
     tags: ["Python", "Tkinter", "SQLite", "Access Control"],
     category: "Web & Systems",
     githubUrl: "https://github.com/janayban",
-    image: "/images/oras.jpg",
+    image: `${base}images/oras.jpg`,
     featured: false,
     securityControls: [
       "Strict regex validation on student identification tokens",
@@ -132,7 +134,7 @@ export const PROJECTS: Project[] = [
     tags: ["Python", "DFIR", "SIEM Rules", "Regex", "Threat Detection"],
     category: "Security",
     githubUrl: "https://github.com/janayban",
-    image: "/images/fp.jpg",
+    image: `${base}images/fp.jpg`,
     featured: false,
     securityControls: [
       "Automated detection of HTTP 401/403 brute force bursts",
@@ -267,10 +269,10 @@ export const SKILL_GROUPS = [
 ];
 
 export const CERTIFICATIONS = [
-  { title: "Cybersecurity Essentials", issuer: "Cisco Networking Academy", file: "/images/badge1.png" },
-  { title: "Security Self-Assessments", issuer: "Credly Verified", file: "/images/badge2.png" },
-  { title: "Secure AI/ML Software", issuer: "Advanced DevSecOps", file: "/images/badge3.png" },
-  { title: "AI Integration Systems", issuer: "Industry Alignment", file: "/images/badge4.png" },
+  { title: "Cybersecurity Essentials", issuer: "Cisco Networking Academy", file: `${base}images/badge1.png` },
+  { title: "Security Self-Assessments", issuer: "Credly Verified", file: `${base}images/badge2.png` },
+  { title: "Secure AI/ML Software", issuer: "Advanced DevSecOps", file: `${base}images/badge3.png` },
+  { title: "AI Integration Systems", issuer: "Industry Alignment", file: `${base}images/badge4.png` },
 ];
 
 export const LAB_ACTIVITIES: LabActivity[] = [

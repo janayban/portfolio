@@ -62,7 +62,7 @@ export default function Footer() {
         {/* Security & Colophon Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
           <div>
-            &copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. Built with Astro, React, TypeScript, and Tailwind CSS.
+            &copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. Built with React, TypeScript, Vite, and Tailwind CSS.
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">
