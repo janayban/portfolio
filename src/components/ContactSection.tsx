@@ -18,7 +18,7 @@ export default function ContactSection() {
         {/* Section Header */}
         <div className="mb-8 pb-4 border-b border-slate-800">
           <div className="flex items-center gap-2 font-mono text-xs text-cyan-cyber mb-1">
-            <span className="text-slate-400">05.</span>
+            <span className="text-slate-400">04.</span>
             <span>COMMUNICATION_CHANNELS</span>
             <span className="text-slate-400">//</span>
             <span>DIRECT_CONTACT</span>

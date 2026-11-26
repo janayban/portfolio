@@ -45,18 +45,18 @@ export default function Hero() {
             {/* Action Buttons */}
             <div className="pt-1 flex flex-wrap items-center gap-3">
               <a
-                href="#writeups"
+                href="#projects"
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-lg bg-cyan-cyber hover:bg-cyan-400 text-obsidian font-semibold text-xs sm:text-sm transition-all shadow-md shadow-cyan-cyber/10"
               >
-                <span>View Write-ups</span>
+                <span>Explore Projects</span>
                 <ChevronRight className="w-4 h-4" />
               </a>
 
               <a
-                href="#projects"
+                href="#skills"
                 className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-lg border border-slate-800 bg-obsidian-surface hover:bg-obsidian-hover hover:border-slate-700 text-slate-100 font-medium text-xs sm:text-sm transition-all"
               >
-                <span>Explore Projects</span>
+                <span>Skills & Certs</span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
               </a>
 
@@ -67,7 +67,7 @@ export default function Hero() {
                 title="Download CV"
               >
                 <FileText className="w-4 h-4 text-cyan-cyber" />
-                <span>CV.pdf</span>
+                <span>CV</span>
               </a>
             </div>
 

@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ProjectsSection from './components/ProjectsSection';
-import WriteupsSection from './components/WriteupsSection';
 import SkillsLabsSection from './components/SkillsLabsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -27,10 +26,7 @@ export default function App() {
         {/* Featured Projects Bento Grid with Security Controls */}
         <ProjectsSection />
 
-        {/* CTF Write-ups & Security Research Changelog */}
-        <WriteupsSection />
-
-        {/* Skills Matrix, Badges & 7ANALYTICS Academic Labs */}
+        {/* Skills Matrix & Verified Credentials */}
         <SkillsLabsSection />
 
         {/* Direct Contact & Cryptographic Identity */}

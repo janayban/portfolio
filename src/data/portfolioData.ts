@@ -42,6 +42,18 @@ export interface LabActivity {
   viewUrl: string;
 }
 
+export interface Certification {
+  id: string;
+  title: string;
+  subtitle: string;
+  issuer: string;
+  date: string;
+  credentialId?: string;
+  category: 'Pentesting & Security' | 'Networking (CCNA)' | 'Linux & AI' | 'Hackathons & CTFs';
+  badge: string;
+  image: string;
+}
+
 const base = import.meta.env.BASE_URL;
 
 export const PERSONAL_INFO = {
@@ -63,83 +75,63 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "notecode",
-    title: "NoteCode",
-    tagline: "Air-gapped Android note management system with secure QR transfer",
-    description: "Native Android application built with Java and Android Studio. Features a zero-network air-gap QR transmission protocol allowing users to share encrypted notes between isolated physical devices without Wi-Fi, Bluetooth, or cellular connectivity.",
-    tags: ["Android", "Java", "Air-Gap Protocol", "Local SQLite", "Input Sanitization"],
-    category: "Web & Systems",
-    githubUrl: "https://github.com/janayban",
-    image: `${base}images/notecode.jpg`,
-    featured: true,
+    id: "hrms-thesis",
+    title: "Human Resource Management System | Thesis Project",
+    tagline: "Comprehensive HRMO platform with ATS, Employee Processing & Analytics",
+    description: "An institutional management system built for the HRMO, featuring an Applicant Tracking System (ATS), Employee Service Processing, and Data Analytics. Served as QA and UI/UX Tester, auditing workflows, testing interface accessibility, and validating system edge cases.",
+    tags: ["Web App", "HRMO", "ATS", "Data Analytics", "QA & UI/UX Testing"],
+    category: "Web Application",
+    image: `${base}images/hrms.jpg`,
+    featured: false,
     securityControls: [
-      "Zero network permissions required in AndroidManifest",
-      "Sanitized chunked QR payload verification",
-      "Isolated local SQLite storage with schema boundaries"
+      "Role: QA & UI/UX Tester of the whole system",
+      "Applicant Tracking System (ATS) pipeline verification",
+      "Employee Service Processing & Data Analytics reporting"
     ]
   },
   {
-    id: "netscan",
-    title: "NetSentinel CLI",
-    tagline: "High-speed multi-threaded reconnaissance & service fingerprinting suite",
-    description: "Tactical network auditing CLI built with Python and low-level socket APIs. Implements non-blocking TCP SYN/Connect scanning heuristics, automated service banner interrogation, and machine-parseable JSON audit logging for penetration tests.",
-    tags: ["Python 3", "Socket API", "Network Recon", "CVE Mapping", "Threading"],
-    category: "Security",
-    githubUrl: "https://github.com/janayban",
-    image: `${base}images/cisco1.png`,
-    featured: true,
+    id: "notecode",
+    title: "NoteCode",
+    tagline: "Air-gapped Android note management system",
+    description: "An offline Android note app that transfers encrypted notes between physical devices via QR codes and utilizes Firebase for secure storage and synchronization without open network vulnerabilities.",
+    tags: ["Android", "Java", "Firebase", "QR Protocol"],
+    category: "Mobile Application",
+    image: `${base}images/notecode.jpg`,
+    featured: false,
     securityControls: [
-      "Configurable timeout & rate-limiting to prevent network disruption",
-      "Automated HTTP / SSH / FTP banner extraction",
-      "Structured JSON / CSV report generation for SOC pipelines"
+      "Zero network permissions required in AndroidManifest",
+      "Sanitized chunked QR code transmission",
+      "Firebase cloud storage & data synchronization"
     ]
   },
   {
     id: "trimclick",
-    title: "TrimClick Portal",
-    tagline: "Appointment scheduling platform with Role-Based Access Control (RBAC)",
-    description: "Full-stack appointment and client management portal. Implements robust defensive web security principles: parameterized PDO queries to eliminate SQL injection, CSRF token validation on sensitive state changes, and session fixation defenses.",
-    tags: ["PHP", "MySQL", "JavaScript", "RBAC", "OWASP Defenses", "Bootstrap"],
-    category: "Web & Systems",
-    githubUrl: "https://github.com/janayban",
+    title: "TrimClick",
+    tagline: "Barbershop booking system with customer loyalty rewards",
+    description: "A web-based appointment booking system designed for barbershops, featuring automated slot scheduling, client appointment management, and customer loyalty discount programs.",
+    tags: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+    category: "Web Application",
     image: `${base}images/trimclick.jpg`,
-    featured: true,
+    featured: false,
     securityControls: [
-      "Prepared statements preventing SQL Injection (OWASP CWE-89)",
-      "Cryptographic CSRF token verification per session form",
-      "Strict role separation between customer and administrative endpoints"
+      "Barbershop appointment & slot scheduling",
+      "Customer loyalty program with automated discounts",
+      "Client & service management dashboard"
     ]
   },
   {
     id: "oras",
     title: "ORAS Registrar Queue",
-    tagline: "University registrar queue & appointment manager with access verification",
-    description: "Institutional appointment booking and student queue manager developed in Python Tkinter with structured SQLite persistence, student token verification, and administrative audit trails.",
-    tags: ["Python", "Tkinter", "SQLite", "Access Control"],
-    category: "Web & Systems",
-    githubUrl: "https://github.com/janayban",
+    tagline: "University registrar queue & appointment manager",
+    description: "A desktop appointment scheduling and student queue management system featuring real-time ticket tracking, student ID validation, and administrative audit logging.",
+    tags: ["Python", "Tkinter", "SQLite", "Queue System"],
+    category: "Desktop Application",
     image: `${base}images/oras.jpg`,
     featured: false,
     securityControls: [
-      "Strict regex validation on student identification tokens",
-      "Partitioned administrative views and queue telemetry",
-      "Tamper-resistant local database logging"
-    ]
-  },
-  {
-    id: "logguard",
-    title: "LogGuard Forensics",
-    tagline: "Lightweight SIEM log ingestion engine with sigma-inspired detection rules",
-    description: "Rule-based security log parser analyzing authentication events, Apache/Nginx web access records, and firewall traffic to isolate brute-force clustering and path traversal attempts.",
-    tags: ["Python", "DFIR", "SIEM Rules", "Regex", "Threat Detection"],
-    category: "Security",
-    githubUrl: "https://github.com/janayban",
-    image: `${base}images/fp.jpg`,
-    featured: false,
-    securityControls: [
-      "Automated detection of HTTP 401/403 brute force bursts",
-      "Directory traversal (../) and SQLi payload pattern matching",
-      "Exportable incident report timeline"
+      "Student ID token validation",
+      "Real-time ticket display & queue telemetry",
+      "Tamper-resistant local audit logs"
     ]
   }
 ];
@@ -235,9 +227,7 @@ export const SKILL_GROUPS = [
       "Blue Teaming & Detection",
       "Network Packet Inspection",
       "Digital Forensics (DFIR)",
-      "Vulnerability Auditing & CVEs",
-      "Threat Modeling (STRIDE)",
-      "Linux System Hardening"
+      "Vulnerability Auditing & CVEs"
     ]
   },
   {
@@ -248,9 +238,7 @@ export const SKILL_GROUPS = [
       "Nmap",
       "Nikto",
       "JohnTheRipper",
-      "Kali Linux & Parrot OS",
-      "Docker Container Security",
-      "Git & Secure CI/CD"
+      "Kali Linux & Parrot OS"
     ]
   },
   {
@@ -261,18 +249,156 @@ export const SKILL_GROUPS = [
       "React",
       "PHP",
       "SQL",
-      "Astro 5 & Tailwind CSS",
-      "Bash & POSIX Shell",
       "RESTful APIs & JSON Schema"
     ]
   }
 ];
 
-export const CERTIFICATIONS = [
-  { title: "Cybersecurity Essentials", issuer: "Cisco Networking Academy", file: `${base}images/badge1.png` },
-  { title: "Security Self-Assessments", issuer: "Credly Verified", file: `${base}images/badge2.png` },
-  { title: "Secure AI/ML Software", issuer: "Advanced DevSecOps", file: `${base}images/badge3.png` },
-  { title: "AI Integration Systems", issuer: "Industry Alignment", file: `${base}images/badge4.png` },
+export const CERTIFICATIONS: Certification[] = [
+  {
+    id: "capen",
+    title: "Certified AppSec Pentester (CAPen)",
+    subtitle: "Passed with Merit Distinction",
+    issuer: "The SecOps Group / PentestingExams.com",
+    date: "Aug 01, 2026",
+    credentialId: "11718086",
+    category: "Pentesting & Security",
+    badge: "Merit Distinction 🛡️",
+    image: `${base}certs/cert-01-capen.jpg`,
+  },
+  {
+    id: "cloudstaff-ai-hackathon",
+    title: "AI Hackathon 2025",
+    subtitle: "Shelter Finder - Disaster Coordination & Relief System",
+    issuer: "Cloudstaff",
+    date: "Nov 25, 2025",
+    category: "Hackathons & CTFs",
+    badge: "Hackathon",
+    image: `${base}certs/cert-02-cloudstaff-hackathon.jpg`,
+  },
+  {
+    id: "dict-hack4gov-2025",
+    title: "HackForGov 2025 Region 3",
+    subtitle: "Regional CTF - Team Exploit Unit (CCA)",
+    issuer: "DICT & NCERT",
+    date: "Dec 04, 2025",
+    category: "Hackathons & CTFs",
+    badge: "CTF Competition",
+    image: `${base}certs/cert-03-dict-hack4gov.jpg`,
+  },
+  {
+    id: "cisco-ccna1",
+    title: "CCNAv7: Introduction to Networks",
+    subtitle: "Network Architectures, IPv4/IPv6 & Ethernet Switching",
+    issuer: "Cisco Networking Academy",
+    date: "Jan 22, 2025",
+    category: "Networking (CCNA)",
+    badge: "Cisco CCNA",
+    image: `${base}certs/cert-04-cisco-ccna1.jpg`,
+  },
+  {
+    id: "cisco-ccna3",
+    title: "CCNA: Enterprise Networking, Security, & Automation",
+    subtitle: "OSPFv2, ACLs, Network Security, VPNs & RESTful APIs",
+    issuer: "Cisco Networking Academy / CCA",
+    date: "Jun 27, 2026",
+    category: "Networking (CCNA)",
+    badge: "Cisco CCNA",
+    image: `${base}certs/cert-05-cisco-ccna3.jpg`,
+  },
+  {
+    id: "cisco-ccna2",
+    title: "CCNA: Switching, Routing, and Wireless Essentials",
+    subtitle: "VLANs, Inter-VLAN Routing, STP, EtherChannel & WLANs",
+    issuer: "Cisco Networking Academy / CCA",
+    date: "Feb 09, 2026",
+    category: "Networking (CCNA)",
+    badge: "Cisco CCNA",
+    image: `${base}certs/cert-06-cisco-ccna2.jpg`,
+  },
+  {
+    id: "ched-ai-literacy",
+    title: "Introduction to AI Literacy & Responsible Use",
+    subtitle: "Foundational AI Competencies & Responsible Implementation",
+    issuer: "CHED & Mapúa University",
+    date: "Sep 14, 2026",
+    category: "Linux & AI",
+    badge: "AI Literacy",
+    image: `${base}certs/cert-07-ched-ai-literacy.jpg`,
+  },
+  {
+    id: "cisco-ethical-hacker",
+    title: "Ethical Hacker",
+    subtitle: "Penetration Testing, Reconnaissance & Vulnerability Assessment",
+    issuer: "Cisco Networking Academy",
+    date: "May 28, 2026",
+    category: "Pentesting & Security",
+    badge: "Ethical Hacking",
+    image: `${base}certs/cert-08-cisco-ethical-hacker.jpg`,
+  },
+  {
+    id: "devcon-convergence-1",
+    title: "Convergence I: Inside the Mind of a Penetration Tester",
+    subtitle: "Adversary Mindset, Attack Vectors & Penetration Testing",
+    issuer: "DEVCON Pampanga",
+    date: "Jul 18, 2026",
+    category: "Pentesting & Security",
+    badge: "DEVCON Seminar",
+    image: `${base}certs/cert-09-devcon-convergence-1.jpg`,
+  },
+  {
+    id: "devcon-convergence-2",
+    title: "Convergence II: Operation Deep Dive",
+    subtitle: "Operational DFIR, Advanced Diagnostics & Security Analysis",
+    issuer: "DEVCON Pampanga",
+    date: "Jul 18, 2026",
+    category: "Pentesting & Security",
+    badge: "DEVCON Seminar",
+    image: `${base}certs/cert-10-devcon-convergence-2.jpg`,
+  },
+  {
+    id: "devcon-convergence-3",
+    title: "Convergence III: From Policy to People",
+    subtitle: "Governance, Risk & Compliance (GRC) & The Human Side of Cyber Risk",
+    issuer: "DEVCON Pampanga",
+    date: "Jul 18, 2026",
+    category: "Pentesting & Security",
+    badge: "DEVCON Seminar",
+    image: `${base}certs/cert-11-devcon-convergence-3.jpg`,
+  },
+  {
+    id: "linux-secure-ai-ml",
+    title: "Secure AI/ML-Driven Software Development",
+    subtitle: "OpenSSF Secure Pipeline & AI/ML Software Integrity (LFEL1012)",
+    issuer: "The Linux Foundation & OpenSSF",
+    date: "Oct 31, 2025",
+    credentialId: "LFEL1012",
+    category: "Linux & AI",
+    badge: "Linux Foundation",
+    image: `${base}certs/cert-12-linux-secure-ai-ml.jpg`,
+  },
+  {
+    id: "linux-security-self-assessments",
+    title: "Security Self-Assessments for Open Source Projects",
+    subtitle: "Threat Modeling, Vulnerability Mitigation & OpenSSF Standards (LFEL1005)",
+    issuer: "The Linux Foundation & OpenSSF",
+    date: "Nov 02, 2025",
+    credentialId: "LFEL1005",
+    category: "Linux & AI",
+    badge: "Linux Foundation",
+    image: `${base}certs/cert-13-linux-security-self-assessments.jpg`,
+  },
+  {
+    id: "linux-cybersecurity-essentials",
+    title: "Cybersecurity Essentials",
+    subtitle: "Core Enterprise Defensive Protocols & Threat Mitigation (LFC108)",
+    issuer: "The Linux Foundation",
+    date: "Oct 30, 2025",
+    credentialId: "LFC108",
+    category: "Pentesting & Security",
+    badge: "Linux Foundation",
+    image: `${base}certs/cert-14-linux-cybersecurity-essentials.jpg`,
+  },
 ];
 
 export const LAB_ACTIVITIES: LabActivity[] = [

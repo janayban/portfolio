@@ -5,13 +5,13 @@ import { Terminal, Menu, X, ArrowUpRight } from 'lucide-react';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['about', 'projects', 'writeups', 'skills', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -32,10 +32,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
     { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Write-ups', href: '#writeups', id: 'writeups' },
-    { name: 'Skills & Labs', href: '#skills', id: 'skills' },
+    { name: 'Skills & Certs', href: '#skills', id: 'skills' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
@@ -64,7 +64,7 @@ export default function Navbar() {
                 {PERSONAL_INFO.handle}
               </span>
               <span className="font-mono text-[9px] text-slate-400">
-                [cca:sec_ops]
+                [ban]
               </span>
             </div>
           </a>
@@ -99,7 +99,7 @@ export default function Navbar() {
               <span>Available for roles</span>
             </div>
 
-            {/* Resume button */}
+            {/* Resume / CV button */}
             <a
               href={PERSONAL_INFO.resumeUrl}
               download
@@ -151,7 +151,7 @@ export default function Navbar() {
                   download
                   className="font-mono text-xs text-cyan-cyber border border-cyan-cyber/30 px-2 py-0.5 rounded bg-cyan-muted"
                 >
-                  CV.pdf
+                  CV
                 </a>
               </div>
             </nav>
