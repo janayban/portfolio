@@ -1,0 +1,9 @@
+Contact: mailto:johnivanmiranda1020@gmail.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://janayban.github.io/.well-known/security.txt
+Encryption: https://janayban.github.io/pgp-key.txt
+Acknowledgments: https://github.com/janayban
+Policy: https://github.com/janayban/security-policy
+Hiring: https://janayban.github.io/#contact
+
